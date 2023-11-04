@@ -1,0 +1,72 @@
+﻿@model SocialModel
+@inject BlackShopThemeSettings blackShopSettings
+
+<ul class="networks">
+    @if (!string.IsNullOrEmpty(Model.FacebookLink))
+    {
+        <li class="facebook">
+            <a href="@Model.FacebookLink" target="_blank">
+                <span class="bs-facebook"></span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(Model.TwitterLink))
+    {
+        <li class="twitter">
+            <a href="@Model.TwitterLink" target="_blank">
+                <span class="bs-twitter"></span>
+            </a>
+        </li>
+    }
+    @if (Model.NewsEnabled)
+    {
+        <li class="rss">
+            <a href="@Url.RouteUrl("NewsRSS", new {languageId = Model.WorkingLanguageId})">
+                <span class="bs-rss"></span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(Model.YoutubeLink))
+    {
+        <li class="youtube">
+            <a href="@Model.YoutubeLink" target="_blank">
+                <span class="bs-youtube"></span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(blackShopSettings.PinterestURL))
+    {
+        <li class="pintrest">
+            <a href="@blackShopSettings.PinterestURL" target="_blank">
+                <span class="bs-pintrest">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="25" height="25" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" fill-rule="evenodd" class=""><g><path fill-rule="nonzero" d="M220.57 338.64c-13.44 70.48-29.86 138.06-78.5 173.36-15.01-106.54 22.05-186.55 39.25-271.49-29.34-49.4 3.53-148.8 65.42-124.3 76.15 30.12-65.94 183.63 29.45 202.8 99.6 20.01 140.25-172.81 78.5-235.51C265.45-7.05 94.93 81.43 115.9 211.07c5.1 31.69 37.85 41.31 13.09 85.04-57.12-12.66-74.16-57.7-71.97-117.75 3.53-98.3 88.32-167.12 173.37-176.64C337.94-10.32 438.88 41.2 452.82 142.38c15.7 114.19-48.55 237.86-163.55 228.97-31.18-2.42-44.26-17.87-68.7-32.71z" fill="#fff" data-original="#000000"></path></g></svg>
+                </span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(blackShopSettings.VimeoURL))
+    {
+        <li class="vimeo">
+            <a href="@blackShopSettings.VimeoURL" target="_blank">
+                <span class="bs-vimeo"></span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(blackShopSettings.InstagramURL))
+    {
+        <li class="instagram">
+            <a href="@blackShopSettings.InstagramURL" target="_blank">
+                <span class="bs-instagram"></span>
+            </a>
+        </li>
+    }
+    @if (!string.IsNullOrEmpty(blackShopSettings.LinkedInURL))
+    {
+        <li class="linkedin">
+            <a href="@blackShopSettings.LinkedInURL" target="_blank">
+                <span class="bs-linkedin"></span>
+            </a>
+        </li>
+    }
+
+</ul>

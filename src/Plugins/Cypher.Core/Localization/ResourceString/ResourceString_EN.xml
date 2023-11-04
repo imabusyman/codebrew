@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="English">
+
+	<!--Common-->
+
+	<LocaleResource Name="Nop.Cypher.Core.Title">
+		<Value>Core</Value>
+	</LocaleResource>
+
+	<!--Site map - plugin menu-->
+
+	<LocaleResource Name="Nop.Cypher.Sitemap.NopCypher">
+		<Value>nopCypher</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Sitemap.Root">
+		<Value>nopCypher</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Sitemap.Core">
+		<Value>Core</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Sitemap.Core.Configuration">
+		<Value>Configuration</Value>
+	</LocaleResource>
+
+	<!--Configuration-->
+
+	<LocaleResource Name="Nop.Cypher.Core.Admin.Configuration.Panel.Info">
+		<Value>Info</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.Admin.Configuration.Page.Title">
+		<Value>Configuration</Value>
+	</LocaleResource>
+
+	<LocaleResource Name="Nop.Cypher.Core.Admin.Configuration.Title">
+		<Value>Configuration </Value>
+	</LocaleResource>
+
+	<LocaleResource Name="Nop.Cypher.Core.Admin.Configuration.Enable">
+		<Value>Enable</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.Admin.Configuration.Enable.Hint">
+		<Value>Enable</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.ProductName">
+		<Value>Plugin Name</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.StoreURL">
+		<Value>Licence store Url</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.PlatformVersion">
+		<Value>nopCommerce Version</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.PluginVersion">
+		<Value>Plugin Version</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.NCLStatus">
+		<Value>Plugin Status</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.CreatedOnUtc">
+		<Value>Created On Utc</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin.LicenceExpiredDate">
+		<Value>Licence Expiration On</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Sitemap.Shop.LicenceDetails">
+		<Value>Licence Details</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Sitemap.Shop.SupportPage">
+		<Value>Support</Value>
+	</LocaleResource>
+	<LocaleResource Name="Nop.Cypher.Core.InstalledPlugin">
+		<Value>nopCypher Plugin List</Value>
+	</LocaleResource>
+</Language>

@@ -1,0 +1,12 @@
+﻿{
+  "Group": "nopCypher",
+  "FriendlyName": "Theme BlackShop",
+  "SystemName": "Cypher.BlackShop",
+  "Version": "3.30",
+  "SupportedVersions": [ "4.60" ],
+  "Author": "nopCypher",
+  "DisplayOrder": 20,
+  "FileName": "Nop.Cypher.Theme.BlackShop.dll",
+  "DependsOnSystemNames": [ "Nop.Cypher.Core" ],
+  "Description": ""
+}
