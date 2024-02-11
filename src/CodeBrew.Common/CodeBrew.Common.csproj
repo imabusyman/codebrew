@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CodeBrew.Common.Http\CodeBrew.Common.Http.csproj" />
-    <ProjectReference Include="..\CodeBrew.Common\CodeBrew.Common.csproj" />
-  </ItemGroup>
-
 </Project>

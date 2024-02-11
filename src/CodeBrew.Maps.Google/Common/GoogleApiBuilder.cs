@@ -1,8 +1,10 @@
-﻿using CodeBrew.Maps.Google.Interface;
+﻿// Ignore Spelling: Api
 
-namespace CodeBrew.Maps.Google.GeoCode
+using CodeBrew.Maps.Google.Interface;
+
+namespace CodeBrew.Maps.Google.Common
 {
-    public abstract class GoogleApiBuilder : IGoogleApiBuilder
+    public abstract class GoogleApiBuilder<TRequest> : IGoogleApiBuilder<TRequest> where TRequest : GoogleApiRequest, new()
     {
         #region Private Fields
 
@@ -22,6 +24,18 @@ namespace CodeBrew.Maps.Google.GeoCode
         #endregion Protected Constructors
 
         #region Public Methods
+
+        public abstract TRequest CreateRequest();
+
+        public Uri? CreateUrl()
+        {
+            var request = CreateRequest();
+            if (request is null)
+            {
+                return null;
+            }
+            return new Uri(request.ToString());
+        }
 
         public IGoogleApiBuilder WithApiKey(string apiKey)
         {

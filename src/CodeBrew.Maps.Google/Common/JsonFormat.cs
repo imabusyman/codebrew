@@ -1,4 +1,6 @@
-﻿namespace CodeBrew.Maps.Google.GeoCode
+﻿// Ignore Spelling: Json
+
+namespace CodeBrew.Maps.Google.Common
 {
     public sealed class JsonFormat : OutputFormat
     {

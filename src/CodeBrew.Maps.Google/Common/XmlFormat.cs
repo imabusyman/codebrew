@@ -1,4 +1,4 @@
-﻿namespace CodeBrew.Maps.Google.GeoCode
+﻿namespace CodeBrew.Maps.Google.Common
 {
     public sealed class XmlFormat : OutputFormat
     {

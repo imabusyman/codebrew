@@ -18,11 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.Maps.Google", "CodeBrew.Maps.Google\CodeBrew.Maps.Google.csproj", "{777CFB82-EA28-40D2-A9FD-AC40CF764D95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.Maps.Bing", "CodeBrew.Maps.Bing\CodeBrew.Maps.Bing.csproj", "{75E2FE58-1638-4A1D-86AD-9764F382FD7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.Maps.Bing", "CodeBrew.Maps.Bing\CodeBrew.Maps.Bing.csproj", "{75E2FE58-1638-4A1D-86AD-9764F382FD7F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{AD123EB7-3288-4CD4-AABC-F42263BBC70D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.Common.Http", "CodeBrew.Common.Http\CodeBrew.Common.Http.csproj", "{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.Common.Http", "CodeBrew.Common.Http\CodeBrew.Common.Http.csproj", "{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.Common", "CodeBrew.Common\CodeBrew.Common.csproj", "{0ADEB6B7-A750-430D-BCE0-1E2111B734D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +56,10 @@ Global
 		{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADEB6B7-A750-430D-BCE0-1E2111B734D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADEB6B7-A750-430D-BCE0-1E2111B734D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADEB6B7-A750-430D-BCE0-1E2111B734D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADEB6B7-A750-430D-BCE0-1E2111B734D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{75E2FE58-1638-4A1D-86AD-9764F382FD7F} = {9B2DC7B6-ED58-4E77-AC22-A9E3E269A744}
 		{AD123EB7-3288-4CD4-AABC-F42263BBC70D} = {9B2DC7B6-ED58-4E77-AC22-A9E3E269A744}
 		{24E6ACB7-B94E-4568-BCE3-77C1B2BBEA77} = {AD123EB7-3288-4CD4-AABC-F42263BBC70D}
+		{0ADEB6B7-A750-430D-BCE0-1E2111B734D1} = {AD123EB7-3288-4CD4-AABC-F42263BBC70D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D9F1F1F-A984-41FD-BC83-D6B8BD3D5869}

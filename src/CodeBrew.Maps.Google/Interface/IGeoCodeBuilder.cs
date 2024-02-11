@@ -6,6 +6,7 @@
 
         IGeoCodeBuilder WithAddress(string address);
 
+
         #endregion Public Methods
     }
 }

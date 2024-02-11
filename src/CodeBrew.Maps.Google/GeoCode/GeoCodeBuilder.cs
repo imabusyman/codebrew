@@ -1,4 +1,5 @@
-﻿using CodeBrew.Maps.Google.Interface;
+﻿using CodeBrew.Maps.Google.Common;
+using CodeBrew.Maps.Google.Interface;
 
 namespace CodeBrew.Maps.Google.GeoCode
 {
@@ -15,6 +16,16 @@ namespace CodeBrew.Maps.Google.GeoCode
         #region Public Methods
 
         public IGeoCodeBuilder WithAddress(string address)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IGoogleApiBuilder WithApiKey(string apiKey)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IGoogleApiBuilder WithOutputFormat(OutputFormat output)
         {
             throw new NotImplementedException();
         }
