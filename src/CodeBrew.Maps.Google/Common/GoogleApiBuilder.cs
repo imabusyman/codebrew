@@ -1,24 +1,20 @@
 ﻿// Ignore Spelling: Api
 
+using System.ComponentModel.DataAnnotations;
 using CodeBrew.Maps.Google.Interface;
 
 namespace CodeBrew.Maps.Google.Common
 {
-    public abstract class GoogleApiBuilder<TRequest> : IGoogleApiBuilder<TRequest> where TRequest : GoogleApiRequest, new()
+    public abstract class GoogleApiBuilder<TRequest> : GoogleApiBuilder, IGoogleApiBuilder<TRequest> where TRequest : class, IGoogleApiRequest
     {
         #region Private Fields
-
-        private string _apiKey = string.Empty;
-
-        private OutputFormat _outputFormat;
 
         #endregion Private Fields
 
         #region Protected Constructors
 
-        protected GoogleApiBuilder()
+        protected GoogleApiBuilder() : base()
         {
-            _outputFormat = new JsonFormat();
         }
 
         #endregion Protected Constructors
@@ -27,25 +23,67 @@ namespace CodeBrew.Maps.Google.Common
 
         public abstract TRequest CreateRequest();
 
-        public Uri? CreateUrl()
+        public override Uri? CreateUri()
         {
-            var request = CreateRequest();
+            TRequest? request = CreateRequest();
             if (request is null)
             {
                 return null;
             }
-            return new Uri(request.ToString());
+            string url = request?.ToString() ?? string.Empty;
+            if (!string.IsNullOrEmpty(url))
+            {
+                return new Uri(url);
+            }
+            return null;
         }
+
+        public override string? CreateUrl()
+        {
+            TRequest? request = CreateRequest();
+            if (request is null)
+            {
+                return null;
+            }
+            return request.ToString();
+        }
+
+        #endregion Public Methods
+    }
+
+    public abstract class GoogleApiBuilder : IGoogleApiBuilder
+    {
+        #region Protected Constructors
+
+        protected GoogleApiBuilder()
+        {
+            OutputFormat = new JsonFormat();
+        }
+
+        #endregion Protected Constructors
+
+        #region Protected Properties
+
+        protected string? ApiKey { get; private set; }
+        protected OutputFormat? OutputFormat { get; private set; }
+
+        #endregion Protected Properties
+
+        #region Public Methods
+
+        public abstract Uri? CreateUri();
+
+        public abstract string? CreateUrl();
 
         public IGoogleApiBuilder WithApiKey(string apiKey)
         {
-            _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
+            ApiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
             return this;
         }
 
         public IGoogleApiBuilder WithOutputFormat(OutputFormat outputFormat)
         {
-            _outputFormat = outputFormat ?? throw new ArgumentNullException(nameof(outputFormat));
+            OutputFormat = outputFormat ?? throw new ArgumentNullException(nameof(outputFormat));
             return this;
         }
 

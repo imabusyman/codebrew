@@ -1,6 +1,8 @@
-﻿namespace CodeBrew.Maps.Google.Interface
+﻿using CodeBrew.Maps.Google.GeoCode;
+
+namespace CodeBrew.Maps.Google.Interface
 {
-    public interface IGeoCodeBuilder : IGoogleApiBuilder
+    public interface IGeoCodeBuilder : IGoogleApiBuilder<GeoCodeRequest>
     {
         #region Public Methods
 

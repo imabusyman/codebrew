@@ -1,14 +1,26 @@
-﻿using CodeBrew.Maps.Google.Common;
+﻿using System.Net.Sockets;
+using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Interface;
 
 namespace CodeBrew.Maps.Google.GeoCode
 {
-    public class GeoCodeBuilder : GoogleApiBuilder, IGeoCodeBuilder
+    public class GeoCodeBuilder : GoogleApiBuilder<GeoCodeRequest>, IGeoCodeBuilder
     {
         #region Public Constructors
 
         public GeoCodeBuilder() : base()
         {
+        }
+
+        public override GeoCodeRequest CreateRequest()
+        {
+            GeoCodeRequest request = new GeoCodeRequest
+            {
+                Address = Address,
+                ApiKey = ApiKey,
+                OutputFormat = OutputFormat
+            };
+            return request;
         }
 
         #endregion Public Constructors
@@ -17,18 +29,12 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         public IGeoCodeBuilder WithAddress(string address)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(address))
+                throw new ArgumentException($"'{nameof(address)}' cannot be null or empty.", nameof(address));
+            Address = address;
+            return this;
         }
-
-        public IGoogleApiBuilder WithApiKey(string apiKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IGoogleApiBuilder WithOutputFormat(OutputFormat output)
-        {
-            throw new NotImplementedException();
-        }
+        protected string? Address { get; private set; }
 
         #endregion Public Methods
     }

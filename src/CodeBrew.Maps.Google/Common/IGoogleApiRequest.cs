@@ -1,11 +1,13 @@
-﻿namespace CodeBrew.Maps.Google.Common
+﻿// Ignore Spelling: Api
+
+namespace CodeBrew.Maps.Google.Common
 {
     public interface IGoogleApiRequest
     {
         #region Public Properties
 
-        string ApiKey { get; }
-        OutputFormat OutputFormat { get; }
+        string? ApiKey { get; }
+        OutputFormat? OutputFormat { get; }
 
         #endregion Public Properties
 

@@ -1,12 +1,14 @@
-﻿using CodeBrew.Maps.Google.Common;
+﻿// Ignore Spelling: Api
+
+using CodeBrew.Maps.Google.Common;
 
 namespace CodeBrew.Maps.Google.Interface
 {
-    public interface IGoogleApiBuilder<TRequest> : IGoogleApiBuilder where TRequest : GoogleApiRequest, new()
+    public interface IGoogleApiBuilder<TRequest> : IGoogleApiBuilder where TRequest : class, IGoogleApiRequest
     {
         #region Public Methods
 
-        public TRequest CreateRequest();
+        public TRequest? CreateRequest();
 
         #endregion Public Methods
     }
@@ -15,7 +17,9 @@ namespace CodeBrew.Maps.Google.Interface
     {
         #region Public Methods
 
-        public Uri? CreateUrl();
+        Uri? CreateUri();
+
+        string? CreateUrl();
 
         IGoogleApiBuilder WithApiKey(string apiKey);
 

@@ -12,9 +12,4 @@
     <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.1.23557.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CodeBrew.LetsTravelIt.Api\CodeBrew.LetsTravelIt.Api.csproj" />
-    <ProjectReference Include="..\CodeBrew.Store.Api\CodeBrew.Store.Api.csproj" />
-  </ItemGroup>
-
 </Project>

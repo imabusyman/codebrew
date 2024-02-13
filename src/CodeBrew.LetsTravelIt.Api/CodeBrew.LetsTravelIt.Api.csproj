@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
-    <UserSecretsId>9010c88d-265c-411d-9aa8-b9c1e6082915</UserSecretsId>
+    <UserSecretsId>87543e8f-7c9f-435f-8f73-a813c570ff26</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
@@ -16,10 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeBrew.ServiceDefaults\CodeBrew.ServiceDefaults.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
