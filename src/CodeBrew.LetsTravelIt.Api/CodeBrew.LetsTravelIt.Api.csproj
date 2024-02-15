@@ -15,7 +15,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CodeBrew.LetsTravelIt.Api.Models\CodeBrew.LetsTravelIt.Api.Models.csproj" />
+    <ProjectReference Include="..\CodeBrew.LetsTravelIt.Shared.Models\CodeBrew.LetsTravelIt.Shared.Models.csproj" />
     <ProjectReference Include="..\CodeBrew.ServiceDefaults\CodeBrew.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
