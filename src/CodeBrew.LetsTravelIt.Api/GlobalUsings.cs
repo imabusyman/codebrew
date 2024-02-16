@@ -1,3 +1,2 @@
-// Global using directives
+﻿// Global using directives
 
-global using CodeBrew.LetsTravelIt.Shared.Models;

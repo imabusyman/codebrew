@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using CodeBrew.LetsTravelIt.Api.Models;
+
+internal class Program
 {
     private static void Main(string[] args)
     {

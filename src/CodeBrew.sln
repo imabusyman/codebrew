@@ -28,9 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.LetsTravelIt.Api",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0D81CF38-1710-42D9-BD90-7AAD5400D8BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.LetsTravelIt.Shared.Models", "CodeBrew.LetsTravelIt.Shared.Models\CodeBrew.LetsTravelIt.Shared.Models.csproj", "{0958F5A4-0589-4BE3-A913-A3727A7F4EB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.LetsTravelIt.Shared.Models", "CodeBrew.LetsTravelIt.Shared.Models\CodeBrew.LetsTravelIt.Shared.Models.csproj", "{0958F5A4-0589-4BE3-A913-A3727A7F4EB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.LetsTravelIt.Api.Models", "CodeBrew.LetsTravelIt.Api.Models\CodeBrew.LetsTravelIt.Api.Models.csproj", "{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.LetsTravelIt.Api.Models", "CodeBrew.LetsTravelIt.Api.Models\CodeBrew.LetsTravelIt.Api.Models.csproj", "{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EC18394-ED21-4FEB-B128-C22A8BE0C736}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CodeBrew.LetsTravelIt.Shared.Models
+namespace CodeBrew.LetsTravelIt.Api.Models
 {
     public static class ApiExtensions
     {
