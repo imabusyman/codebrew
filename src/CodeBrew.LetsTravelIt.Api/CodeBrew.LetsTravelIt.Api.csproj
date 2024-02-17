@@ -27,4 +27,8 @@
     <ProjectReference Include="..\CodeBrew.ServiceDefaults\CodeBrew.ServiceDefaults.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\GeoCoding\" />
+  </ItemGroup>
+
 </Project>

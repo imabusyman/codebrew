@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System.Web;
 using CodeBrew.Maps.Google.Common;
+using CodeBrew.Maps.Google.Models;
 
 namespace CodeBrew.Maps.Google.GeoCode
 {
-    public class GeoCodeRequest : GoogleApiRequest
+    public class GeoCodeAddressRequest : GoogleApiRequest
     {
         #region Private Fields
 
@@ -18,15 +14,20 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         #region Public Constructors
 
-        public GeoCodeRequest() : base()
+        public GeoCodeAddressRequest()
         {
+        }
+
+        public GeoCodeAddressRequest(GoogleAddress googleAddress)
+        {
+            GoogleAddress = googleAddress ?? throw new ArgumentNullException(nameof(googleAddress));
         }
 
         #endregion Public Constructors
 
         #region Public Properties
 
-        public string? Address { get; set; }
+        public GoogleAddress? GoogleAddress { get; set; }
 
         #endregion Public Properties
 
@@ -39,9 +40,9 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         protected override string ToStringInner()
         {
-            if (!string.IsNullOrEmpty(Address))
+            if (!string.IsNullOrEmpty(GoogleAddress?.FormattedAddress))
             {
-                string encodeUrlString = HttpUtility.UrlPathEncode(Address);
+                var encodeUrlString = HttpUtility.UrlPathEncode(GoogleAddress.FormattedAddress);
                 return $"address={encodeUrlString}";
             }
             return string.Empty;

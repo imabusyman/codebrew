@@ -1,36 +1,19 @@
 ﻿// Ignore Spelling: Api
 
-using System.ComponentModel.DataAnnotations;
 using CodeBrew.Maps.Google.Interface;
 
 namespace CodeBrew.Maps.Google.Common
 {
     public abstract class GoogleApiBuilder<TRequest> : GoogleApiBuilder, IGoogleApiBuilder<TRequest> where TRequest : class, IGoogleApiRequest
     {
-        #region Private Fields
-
-        #endregion Private Fields
-
-        #region Protected Constructors
-
-        protected GoogleApiBuilder() : base()
-        {
-        }
-
-        #endregion Protected Constructors
-
         #region Public Methods
 
         public abstract TRequest CreateRequest();
 
         public override Uri? CreateUri()
         {
-            TRequest? request = CreateRequest();
-            if (request is null)
-            {
-                return null;
-            }
-            string url = request?.ToString() ?? string.Empty;
+            var request = CreateRequest();
+            var url = request.ToString() ?? string.Empty;
             if (!string.IsNullOrEmpty(url))
             {
                 return new Uri(url);
@@ -40,11 +23,7 @@ namespace CodeBrew.Maps.Google.Common
 
         public override string? CreateUrl()
         {
-            TRequest? request = CreateRequest();
-            if (request is null)
-            {
-                return null;
-            }
+            var request = CreateRequest();
             return request.ToString();
         }
 
@@ -53,19 +32,10 @@ namespace CodeBrew.Maps.Google.Common
 
     public abstract class GoogleApiBuilder : IGoogleApiBuilder
     {
-        #region Protected Constructors
-
-        protected GoogleApiBuilder()
-        {
-            OutputFormat = new JsonFormat();
-        }
-
-        #endregion Protected Constructors
-
         #region Protected Properties
 
         protected string? ApiKey { get; private set; }
-        protected OutputFormat? OutputFormat { get; private set; }
+        protected OutputFormat? OutputFormat { get; private set; } = new JsonFormat();
 
         #endregion Protected Properties
 

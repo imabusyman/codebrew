@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBrew.LetsTravelIt.Api.M
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EC18394-ED21-4FEB-B128-C22A8BE0C736}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBrew.Common.Models", "CodeBrew.Common.Models\CodeBrew.Common.Models.csproj", "{59859F80-18B5-48BE-88B4-D52FB02440E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59859F80-18B5-48BE-88B4-D52FB02440E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59859F80-18B5-48BE-88B4-D52FB02440E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59859F80-18B5-48BE-88B4-D52FB02440E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59859F80-18B5-48BE-88B4-D52FB02440E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{A002B215-2FFC-44E0-AB92-3411D2F14927} = {89EA65E5-21D9-4B95-8F9F-CCCC20BE4AAA}
 		{0958F5A4-0589-4BE3-A913-A3727A7F4EB8} = {0D81CF38-1710-42D9-BD90-7AAD5400D8BB}
 		{8C78ED06-0DF4-4D61-B84D-FD7DA5D7645D} = {0D81CF38-1710-42D9-BD90-7AAD5400D8BB}
+		{59859F80-18B5-48BE-88B4-D52FB02440E0} = {AD123EB7-3288-4CD4-AABC-F42263BBC70D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D9F1F1F-A984-41FD-BC83-D6B8BD3D5869}

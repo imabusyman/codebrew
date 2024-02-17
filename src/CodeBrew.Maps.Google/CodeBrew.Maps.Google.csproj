@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeBrew.Common.Http\CodeBrew.Common.Http.csproj" />
+    <ProjectReference Include="..\CodeBrew.Common.Models\CodeBrew.Common.Models.csproj" />
     <ProjectReference Include="..\CodeBrew.Common\CodeBrew.Common.csproj" />
   </ItemGroup>
 
