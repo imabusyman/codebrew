@@ -10,14 +10,15 @@ namespace CodeBrew.Common.Models
         {
         }
 
-        protected Address(string address, string city, string state, string postalCode, string country)
+        protected Address(string address, string city, State state, string postalCode, string country)
         {
             Street = address ?? throw new ArgumentNullException(nameof(address));
             City = city ?? throw new ArgumentNullException(nameof(city));
-            State = state ?? throw new ArgumentNullException(nameof(state));
+            State = state;
             PostalCode = postalCode ?? throw new ArgumentNullException(nameof(postalCode));
             Country = country ?? throw new ArgumentNullException(nameof(country));
         }
+
         #endregion Protected Constructors
 
         // Create an address class that has city, country, postal code, state, street, street2, street3, coordinate, zip code, and plus four
@@ -27,11 +28,13 @@ namespace CodeBrew.Common.Models
         public string? City { get; set; }
         public Coordinate? Coordinate { get; set; }
         public string? Country { get; set; }
+
         [JsonIgnore]
-        public string? FormattedAddress => $"{Street}, {City}, {State}, {PostalCode}, {Country}";
+        public string FormattedAddress => $"{Street}, {City}, {State}, {PostalCode}, {Country}";
+
         public string? PlusFour { get; set; }
         public string? PostalCode { get; set; }
-        public string? State { get; set; }
+        public State State { get; set; }
         public string? Street { get; set; }
         public string? Street2 { get; set; }
         public string? Street3 { get; set; }

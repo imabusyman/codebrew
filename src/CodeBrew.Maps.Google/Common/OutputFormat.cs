@@ -1,19 +1,10 @@
 ﻿namespace CodeBrew.Maps.Google.Common
 {
-    public abstract class OutputFormat
+    public abstract class OutputFormat(string format)
     {
-        #region Protected Constructors
-
-        protected OutputFormat(string format)
-        {
-            Format = format ?? throw new ArgumentNullException(nameof(format));
-        }
-
-        #endregion Protected Constructors
-
         #region Public Properties
 
-        public string Format { get; }
+        public string Format { get; } = format ?? throw new ArgumentNullException(nameof(format));
 
         #endregion Public Properties
     }

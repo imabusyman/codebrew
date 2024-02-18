@@ -7,6 +7,7 @@ namespace CodeBrew.Maps.Google.Common
         #region Public Properties
 
         string? ApiKey { get; }
+        Uri? BaseUrl { get; }
         OutputFormat? OutputFormat { get; }
 
         #endregion Public Properties

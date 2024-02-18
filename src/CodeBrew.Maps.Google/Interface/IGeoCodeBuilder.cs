@@ -3,12 +3,11 @@ using CodeBrew.Maps.Google.Models;
 
 namespace CodeBrew.Maps.Google.Interface
 {
-    public interface IGeoCodeBuilder : IGoogleApiBuilder<GeoCodeAddressRequest>
+    public interface IGeoCodeAddressBuilder : IGoogleApiBuilder<GeoCodeAddressRequest>
     {
         #region Public Methods
 
-        IGeoCodeBuilder WithAddress(GoogleAddress address);
-
+        IGeoCodeAddressBuilder WithAddress(GoogleAddress address);
 
         #endregion Public Methods
     }

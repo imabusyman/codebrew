@@ -1,6 +1,7 @@
 ﻿// Ignore Spelling: Api
 
 using CodeBrew.Maps.Google.Common;
+using FluentValidation;
 
 namespace CodeBrew.Maps.Google.Interface
 {
@@ -9,6 +10,7 @@ namespace CodeBrew.Maps.Google.Interface
         #region Public Methods
 
         public TRequest? CreateRequest();
+        void WithValidation(IValidator<TRequest> validator);
 
         #endregion Public Methods
     }

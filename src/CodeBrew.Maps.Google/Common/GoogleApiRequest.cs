@@ -1,31 +1,34 @@
 ﻿// Ignore Spelling: Api
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CodeBrew.Common.Extensions;
-using static System.Net.WebRequestMethods;
 
 namespace CodeBrew.Maps.Google.Common
 {
     public abstract class GoogleApiRequest : IGoogleApiRequest
     {
-        #region Protected Constructors
+        #region Private Fields
 
-        protected GoogleApiRequest()
-        {
-            BaseUrl = new Uri(GetDefaultUrl());
-        }
+        private Uri? _baseUrl;
 
-        #endregion Protected Constructors
+        #endregion Private Fields
 
         #region Public Properties
 
         public string? ApiKey { get; set; }
 
-        public Uri? BaseUrl { get; set; }
+        public Uri? BaseUrl
+        {
+            get
+            {
+                if (_baseUrl == null)
+                {
+                    _baseUrl = new Uri(GetDefaultUrl());
+                }
+
+                return _baseUrl;
+            }
+            set => _baseUrl = value;
+        }
 
         public OutputFormat? OutputFormat { get; set; }
 
@@ -33,7 +36,10 @@ namespace CodeBrew.Maps.Google.Common
 
         #region Public Methods
 
-        public string ToMd5() => ToString()?.ToMD5() ?? string.Empty;
+        public string ToMd5()
+        {
+            return ToString().ToMd5();
+        }
 
         public override string ToString()
         {
@@ -41,7 +47,7 @@ namespace CodeBrew.Maps.Google.Common
             {
                 return string.Empty;
             }
-            UriBuilder uriBuilder = new UriBuilder(BaseUrl);
+            var uriBuilder = new UriBuilder(BaseUrl);
             if (OutputFormat != null)
             {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
