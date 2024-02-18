@@ -7,9 +7,9 @@ namespace CodeBrew.Common.Models.Validators;
 
 public abstract class AddressValidator<TAddress> : AbstractValidator<TAddress>, IAddressValidator<TAddress> where TAddress : Address, new()
 {
-    #region Protected Constructors
+    #region Public Methods
 
-    protected AddressValidator()
+    public void CreateRule()
     {
         RuleFor(a => a.Street)
             .NotNull()
@@ -36,5 +36,5 @@ public abstract class AddressValidator<TAddress> : AbstractValidator<TAddress>, 
             .WithMessage("Invalid State Abbreviation");
     }
 
-    #endregion Protected Constructors
+    #endregion Public Methods
 }

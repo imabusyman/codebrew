@@ -1,4 +1,6 @@
-﻿using CodeBrew.Common.Models.Validators;
+﻿// Ignore Spelling: Validator
+
+using CodeBrew.Common.Models.Validators;
 using CodeBrew.Maps.Google.Interface;
 using CodeBrew.Maps.Google.Models;
 

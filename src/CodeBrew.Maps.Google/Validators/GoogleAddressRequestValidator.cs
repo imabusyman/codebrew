@@ -6,7 +6,7 @@ using CodeBrew.Maps.Google.Interface;
 
 namespace CodeBrew.Maps.Google.Validators;
 
-public class GoogleAddressRequestValidator : GoogleApiRequestValidator<GeoCodeAddressRequest>
+public class GoogleAddressRequestValidator : GoogleApiRequestValidator<GeoCodeAddressRequest> , IGoogleAddressRequestValidator
 {
     #region Protected Constructors
 
@@ -15,8 +15,4 @@ public class GoogleAddressRequestValidator : GoogleApiRequestValidator<GeoCodeAd
     }
 
     #endregion Protected Constructors
-}
-
-public interface IGoogleAddressRequestValidator : IGoogleApiRequestValidator<GeoCodeAddressRequest>
-{
 }
