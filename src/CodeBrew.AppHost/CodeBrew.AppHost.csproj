@@ -9,10 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Dashboard" Version="8.0.0-preview.2.23619.3" />
     <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.3.24105.21" />
     <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
-    <PackageReference Include="Google.Maps.AddressValidation.V1" Version="1.0.0" />
+    <PackageReference Include="Google.Maps.AddressValidation.V1" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
