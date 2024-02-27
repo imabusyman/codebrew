@@ -34,7 +34,7 @@ namespace CodeBrew.Common.Models
 
         public string? PlusFour { get; set; }
         public string? PostalCode { get; set; }
-        public State State { get; set; }
+        public State? State { get; set; }
         public string? Street { get; set; }
         public string? Street2 { get; set; }
         public string? Street3 { get; set; }
