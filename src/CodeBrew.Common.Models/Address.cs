@@ -2,7 +2,7 @@
 
 namespace CodeBrew.Common.Models
 {
-    public abstract class Address
+    public abstract class Address : BaseAddress
     {
         #region Protected Constructors
 
@@ -30,11 +30,11 @@ namespace CodeBrew.Common.Models
         public string? Country { get; set; }
 
         [JsonIgnore]
-        public string FormattedAddress => $"{Street}, {City}, {State}, {PostalCode}, {Country}";
+        public override string FormattedAddress => $"{Street}, {City}, {State}, {PostalCode}, {Country}";
 
         public string? PlusFour { get; set; }
         public string? PostalCode { get; set; }
-        public State State { get; set; }
+        public State? State { get; set; }
         public string? Street { get; set; }
         public string? Street2 { get; set; }
         public string? Street3 { get; set; }

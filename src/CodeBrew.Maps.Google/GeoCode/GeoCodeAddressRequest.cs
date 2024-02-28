@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using CodeBrew.Common.Models.Interface;
 using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Models;
 
@@ -27,7 +28,7 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         #region Public Properties
 
-        public GoogleAddress? GoogleAddress { get; set; }
+        public IBaseAddress? GoogleAddress { get; set; }
 
         #endregion Public Properties
 

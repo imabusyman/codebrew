@@ -1,4 +1,5 @@
-﻿using CodeBrew.Maps.Google.GeoCode;
+﻿using CodeBrew.Common.Models.Interface;
+using CodeBrew.Maps.Google.GeoCode;
 using CodeBrew.Maps.Google.Models;
 
 namespace CodeBrew.Maps.Google.Interface
@@ -7,7 +8,7 @@ namespace CodeBrew.Maps.Google.Interface
     {
         #region Public Methods
 
-        IGeoCodeAddressBuilder WithAddress(GoogleAddress address);
+        IGeoCodeAddressBuilder WithAddress(IBaseAddress address);
 
         #endregion Public Methods
     }

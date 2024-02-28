@@ -37,7 +37,7 @@ namespace CodeBrew.Maps.Google.Common
             }
         }
 
-        public abstract TRequest CreateRequestInner();
+        protected abstract TRequest CreateRequestInner();
 
         public override Uri? CreateUri()
         {

@@ -1,4 +1,5 @@
-﻿using CodeBrew.Maps.Google.Common;
+﻿using CodeBrew.Common.Models.Interface;
+using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Interface;
 using CodeBrew.Maps.Google.Models;
 using Microsoft.Extensions.Logging;
@@ -10,16 +11,16 @@ namespace CodeBrew.Maps.Google.GeoCode
     {
         #region Protected Properties
 
-        protected GoogleAddress? GoogleAddress { get; private set; }
+        protected IBaseAddress? GoogleAddress { get; private set; }
 
         #endregion Protected Properties
 
         #region Public Methods
 
-        public override GeoCodeAddressRequest CreateRequestInner()
+        protected override GeoCodeAddressRequest CreateRequestInner()
         {
             if (GoogleAddress is null)
-                throw new ArgumentException(nameof(GoogleAddress));
+                throw new ArgumentNullException(nameof(GoogleAddress));
             var request = new GeoCodeAddressRequest
             {
                 GoogleAddress = GoogleAddress,
@@ -29,9 +30,9 @@ namespace CodeBrew.Maps.Google.GeoCode
             return request;
         }
 
-        public IGeoCodeAddressBuilder WithAddress(GoogleAddress googleAddress)
+        public IGeoCodeAddressBuilder WithAddress(IBaseAddress googleAddress)
         {
-            GoogleAddress = googleAddress ?? throw new ArgumentException(nameof(googleAddress));
+            GoogleAddress = googleAddress ?? throw new ArgumentNullException(nameof(googleAddress));
             return this;
         }
 
