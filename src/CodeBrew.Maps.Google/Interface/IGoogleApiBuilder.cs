@@ -1,11 +1,12 @@
 ﻿// Ignore Spelling: Api
 
 using CodeBrew.Maps.Google.Common;
+using CodeBrew.Maps.Google.Models;
 using FluentValidation;
 
 namespace CodeBrew.Maps.Google.Interface
 {
-    public interface IGoogleApiBuilder<TRequest> : IGoogleApiBuilder where TRequest : class, IGoogleApiRequest
+    public interface IGoogleApiBuilder<out TRequest> : IGoogleApiBuilder where TRequest : class, IGoogleApiRequest
     {
         #region Public Methods
 
@@ -25,7 +26,9 @@ namespace CodeBrew.Maps.Google.Interface
 
         IGoogleApiBuilder WithApiKey(string apiKey);
 
-        IGoogleApiBuilder WithOutputFormat(OutputFormat output);
+        IGoogleApiBuilder WithOptions(GoogleOptions? googleOptions);
+
+        IGoogleApiBuilder WithOutputFormat(OutputFormat? output);
 
         #endregion Public Methods
     }

@@ -49,7 +49,7 @@ namespace CodeBrew.Maps.Google.Tests
             var request = geoCodeAddressBuilder.CreateRequest();
             Assert.IsNotNull(request);
 
-            Assert.AreEqual(request.GoogleAddress.FormattedAddress, "91 Windmill St, Piedmont, OK, 73078, USA");
+            Assert.AreEqual(request.GoogleAddress?.FormattedAddress, "91 Windmill St, Piedmont, OK, 73078, USA");
         }
 
         private GoogleAddress CreateGoogleAddress(bool useFake = true)
