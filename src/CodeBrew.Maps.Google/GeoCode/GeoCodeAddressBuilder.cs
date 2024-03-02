@@ -2,6 +2,8 @@
 using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Interface;
 using CodeBrew.Maps.Google.Models;
+using CodeBrew.Maps.Google.Validators;
+using FluentValidation;
 using Microsoft.Extensions.Logging;
 
 namespace CodeBrew.Maps.Google.GeoCode
@@ -27,6 +29,8 @@ namespace CodeBrew.Maps.Google.GeoCode
                 ApiKey = ApiKey,
                 OutputFormat = OutputFormat
             };
+            var googleAddressRequestValidator = new GoogleAddressRequestValidator();
+            googleAddressRequestValidator.ValidateAndThrow(request);
             return request;
         }
 

@@ -10,7 +10,7 @@ public class GoogleAddressRequestValidator : GoogleApiRequestValidator<GeoCodeAd
 {
     #region Protected Constructors
 
-    protected GoogleAddressRequestValidator()
+    public GoogleAddressRequestValidator()
     {
     }
 

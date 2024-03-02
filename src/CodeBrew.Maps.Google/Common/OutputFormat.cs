@@ -6,6 +6,11 @@
 
         public string Format { get; } = format ?? throw new ArgumentNullException(nameof(format));
 
+        public override string ToString()
+        {
+            return Format;
+        }
+
         #endregion Public Properties
     }
 }
