@@ -8,11 +8,14 @@ namespace CodeBrew.Maps.Google.Common
 
         string? ApiKey { get; }
         Uri? BaseUrl { get; }
+
         OutputFormat? OutputFormat { get; }
 
         #endregion Public Properties
 
         #region Public Methods
+
+        string FormattedUrl();
 
         string ToMd5();
 

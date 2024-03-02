@@ -39,7 +39,7 @@ namespace CodeBrew.Maps.Google.GeoCode
             return DEFAULT_GOOGLE_API_URL;
         }
 
-        protected override string ToStringInner()
+        protected override string FormattedUrlInner()
         {
             if (!string.IsNullOrEmpty(GoogleAddress?.FormattedAddress))
             {
