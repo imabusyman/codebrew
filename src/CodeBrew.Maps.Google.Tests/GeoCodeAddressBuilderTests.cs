@@ -17,7 +17,7 @@ namespace CodeBrew.Maps.Google.Tests
             var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
             var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
             Assert.IsNotNull(geoCodeAddressBuilder);
-            var request = geoCodeAddressBuilder.CreateRequest();
+            geoCodeAddressBuilder.CreateRequest();
         }
 
         [TestMethod]
