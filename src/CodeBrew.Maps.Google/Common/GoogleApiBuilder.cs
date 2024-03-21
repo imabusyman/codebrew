@@ -1,10 +1,10 @@
 ﻿// Ignore Spelling: Api validator
 
 using CodeBrew.Maps.Google.Interface;
+using CodeBrew.Maps.Google.Models;
 using FluentValidation;
 using Microsoft.Extensions.Logging;
 using ILogger = Microsoft.Extensions.Logging.ILogger;
-
 
 namespace CodeBrew.Maps.Google.Common
 {
@@ -32,12 +32,10 @@ namespace CodeBrew.Maps.Google.Common
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, ex.Message);
+                Logger?.LogError(ex, ex.Message);
                 throw;
             }
         }
-
-        protected abstract TRequest CreateRequestInner();
 
         public override Uri? CreateUri()
         {
@@ -62,15 +60,20 @@ namespace CodeBrew.Maps.Google.Common
         }
 
         #endregion Public Methods
+
+        #region Protected Methods
+
+        protected abstract TRequest CreateRequestInner();
+
+        #endregion Protected Methods
     }
 
     public abstract class GoogleApiBuilder(ILogger logger) : IGoogleApiBuilder
     {
         #region Protected Properties
 
-        protected string? ApiKey { get; private set; }
-        protected ILogger Logger { get; } = logger ?? throw new ArgumentNullException(nameof(logger));
-        protected OutputFormat? OutputFormat { get; private set; } = new JsonFormat();
+        protected ILogger? Logger { get; } = logger ?? throw new ArgumentNullException(nameof(logger));
+        protected GoogleOptions? Options { get; private set; } = new();
 
         #endregion Protected Properties
 
@@ -82,13 +85,29 @@ namespace CodeBrew.Maps.Google.Common
 
         public IGoogleApiBuilder WithApiKey(string apiKey)
         {
-            ApiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                if (Options != null) Options.ApiKey = apiKey;
+            }
             return this;
         }
 
-        public IGoogleApiBuilder WithOutputFormat(OutputFormat outputFormat)
+        public IGoogleApiBuilder WithOptions(GoogleOptions? googleOptions)
         {
-            OutputFormat = outputFormat ?? throw new ArgumentNullException(nameof(outputFormat));
+            if (googleOptions != null)
+            {
+                Options = googleOptions;
+            }
+
+            return this;
+        }
+
+        public IGoogleApiBuilder WithOutputFormat(OutputFormat? outputFormat)
+        {
+            if (outputFormat != null)
+            {
+                if (Options != null) Options.OutputFormat = outputFormat;
+            }
             return this;
         }
 

@@ -1,7 +1,6 @@
 ﻿using CodeBrew.Common.Models.Interface;
 using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Interface;
-using CodeBrew.Maps.Google.Models;
 using CodeBrew.Maps.Google.Validators;
 using FluentValidation;
 using Microsoft.Extensions.Logging;

@@ -26,18 +26,52 @@ namespace CodeBrew.Maps.Google.Tests
             var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
             var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
             Assert.IsNotNull(geoCodeAddressBuilder);
-            var googleAddress = CreateGoogleAddress();
+            var googleAddress = CreateGoogleAddress(true);
+            geoCodeAddressBuilder.WithAddress(googleAddress);
+            geoCodeAddressBuilder.WithApiKey("testKey");
+            GeoCodeAddressRequest request = geoCodeAddressBuilder.CreateRequest();
+            Assert.IsNotNull(request);
+            Assert.IsNotNull(request.GoogleAddress);
+            Assert.IsTrue(request.FormattedUrl().Contains("key"));
+            Assert.IsTrue(request.FormattedUrl().Contains("address"));
+            Assert.IsTrue(request.FormattedUrl().Contains("json"));
+        }
+
+        [TestMethod]
+        public void TestCreateGeoCodeCheckAddressBuilder()
+        {
+            var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
+            var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
+            Assert.IsNotNull(geoCodeAddressBuilder);
+            var googleAddress = CreateGoogleAddress(false);
             geoCodeAddressBuilder.WithAddress(googleAddress);
             geoCodeAddressBuilder.WithApiKey("testKey");
             var request = geoCodeAddressBuilder.CreateRequest();
             Assert.IsNotNull(request);
+
+            Assert.AreEqual(request.GoogleAddress?.FormattedAddress, "91 Windmill St, Piedmont, OK, 73078, USA");
         }
 
-        private GoogleAddress CreateGoogleAddress()
+        private GoogleAddress CreateGoogleAddress(bool useFake = true)
         {
-            return new GoogleAddressFaker().Generate();
+            if (useFake)
+            {
+                return new GoogleAddressFaker().Generate();
+            }
+            else
+            {
+                return new GoogleAddress
+                {
+                    Street = "91 Windmill St",
+                    City = "Piedmont",
+                    State = new State(StateEnum.Oklahoma),
+                    PostalCode = "73078",
+                    Country = "USA"
+                };
+            }
         }
     }
+}
     public sealed class GoogleAddressFaker : Faker<GoogleAddress>
     {
         public GoogleAddressFaker()
@@ -50,4 +84,3 @@ namespace CodeBrew.Maps.Google.Tests
             RuleFor(o => o.PlusFour, f => f.Address.ZipCode("####"));
         }
     }
-}

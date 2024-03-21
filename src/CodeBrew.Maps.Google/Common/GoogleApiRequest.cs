@@ -43,6 +43,11 @@ namespace CodeBrew.Maps.Google.Common
 
         public override string ToString()
         {
+            return FormattedUrl();
+        }
+
+        public virtual string FormattedUrl()
+        {
             if (BaseUrl == null)
             {
                 return string.Empty;
@@ -54,7 +59,7 @@ namespace CodeBrew.Maps.Google.Common
                 uriBuilder.Path = $"{uriBuilder.Path.TrimEnd('/')}/{OutputFormat?.ToString().ToLowerInvariant() ?? string.Empty}";
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
-            return $"{uriBuilder.Uri}?{ToStringInner()}&key={ApiKey}";
+            return $"{uriBuilder.Uri}?{FormattedUrlInner()}&key={ApiKey}";
         }
 
         #endregion Public Methods
@@ -63,7 +68,7 @@ namespace CodeBrew.Maps.Google.Common
 
         protected abstract string GetDefaultUrl();
 
-        protected abstract string ToStringInner();
+        protected abstract string FormattedUrlInner();
 
         #endregion Protected Methods
     }
