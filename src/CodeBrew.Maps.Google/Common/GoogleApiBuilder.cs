@@ -3,18 +3,16 @@
 using CodeBrew.Maps.Google.Interface;
 using CodeBrew.Maps.Google.Models;
 using FluentValidation;
-using Microsoft.Extensions.Logging;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace CodeBrew.Maps.Google.Common
 {
-    public abstract class GoogleApiBuilder<TRequest>(ILogger logger)
-        : GoogleApiBuilder(logger), IGoogleApiBuilder<TRequest>
+    public abstract class GoogleApiBuilder<TRequest>
+        : GoogleApiBuilder, IGoogleApiBuilder<TRequest>
         where TRequest : class, IGoogleApiRequest
     {
         #region Protected Properties
 
-        protected IValidator<TRequest>? Validator { get; private set; }
+        protected IValidator<TRequest>? Validator { get; set; }
 
         #endregion Protected Properties
 
@@ -22,19 +20,11 @@ namespace CodeBrew.Maps.Google.Common
 
         public virtual TRequest CreateRequest()
         {
-            try
-            {
-                var request = CreateRequestInner();
-                if (Validator == null)
-                    return request;
-                Validator.ValidateAndThrow(request);
+            var request = CreateRequestInner();
+            if (Validator == null)
                 return request;
-            }
-            catch (Exception ex)
-            {
-                Logger?.LogError(ex, ex.Message);
-                throw;
-            }
+            Validator.ValidateAndThrow(request);
+            return request;
         }
 
         public override Uri? CreateUri()
@@ -68,11 +58,10 @@ namespace CodeBrew.Maps.Google.Common
         #endregion Protected Methods
     }
 
-    public abstract class GoogleApiBuilder(ILogger logger) : IGoogleApiBuilder
+    public abstract class GoogleApiBuilder : IGoogleApiBuilder
     {
         #region Protected Properties
 
-        protected ILogger? Logger { get; } = logger ?? throw new ArgumentNullException(nameof(logger));
         protected GoogleOptions? Options { get; private set; } = new();
 
         #endregion Protected Properties
@@ -85,20 +74,31 @@ namespace CodeBrew.Maps.Google.Common
 
         public IGoogleApiBuilder WithApiKey(string apiKey)
         {
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                if (Options != null) Options.ApiKey = apiKey;
-            }
+            if (string.IsNullOrEmpty(apiKey))
+                return this;
+            if (Options != null)
+                Options.ApiKey = apiKey;
+            return this;
+        }
+
+        public IGoogleApiBuilder WithBaseUrl(string url)
+        {
+            return WithBaseUrl(new Uri(url));
+        }
+
+        public IGoogleApiBuilder WithBaseUrl(Uri? uri)
+        {
+            if (uri is null)
+                return this;
+            if (Options != null)
+                Options.BaseUri = uri;
             return this;
         }
 
         public IGoogleApiBuilder WithOptions(GoogleOptions? googleOptions)
         {
-            if (googleOptions != null)
-            {
-                Options = googleOptions;
-            }
-
+            if (googleOptions is null) return this;
+            Options = googleOptions;
             return this;
         }
 
@@ -106,7 +106,8 @@ namespace CodeBrew.Maps.Google.Common
         {
             if (outputFormat != null)
             {
-                if (Options != null) Options.OutputFormat = outputFormat;
+                if (Options != null)
+                    Options.OutputFormat = outputFormat;
             }
             return this;
         }

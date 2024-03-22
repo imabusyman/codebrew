@@ -3,13 +3,16 @@ using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.Interface;
 using CodeBrew.Maps.Google.Validators;
 using FluentValidation;
-using Microsoft.Extensions.Logging;
 
 namespace CodeBrew.Maps.Google.GeoCode
 {
-    public class GeoCodeAddressBuilder(ILogger<GeoCodeAddressBuilder> logger)
-        : GoogleApiBuilder<GeoCodeAddressRequest>(logger), IGeoCodeAddressBuilder
+    public class GeoCodeAddressBuilder
+        : GoogleApiBuilder<GeoCodeAddressRequest>, IGeoCodeAddressBuilder
     {
+        public GeoCodeAddressBuilder()
+        {
+            Validator = new GoogleAddressRequestValidator();
+        }
         #region Protected Properties
 
         protected IBaseAddress? GoogleAddress { get; private set; }
@@ -20,14 +23,18 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         protected override GeoCodeAddressRequest CreateRequestInner()
         {
-            if (GoogleAddress is null)
-                throw new ArgumentNullException(nameof(GoogleAddress));
-            var request = new GeoCodeAddressRequest
+            if (Options is null)
             {
-                GoogleAddress = GoogleAddress,
-                ApiKey = ApiKey,
-                OutputFormat = OutputFormat
-            };
+                throw new ArgumentNullException(nameof(Options));
+            }
+
+            if (GoogleAddress is null)
+            {
+                throw new ArgumentNullException(nameof(GoogleAddress));
+            }
+
+            var request = new GeoCodeAddressRequest { GoogleAddress = GoogleAddress, OutputFormat = Options.OutputFormat, ApiKey = Options.ApiKey};
+                    
             var googleAddressRequestValidator = new GoogleAddressRequestValidator();
             googleAddressRequestValidator.ValidateAndThrow(request);
             return request;
@@ -40,5 +47,6 @@ namespace CodeBrew.Maps.Google.GeoCode
         }
 
         #endregion Public Methods
+
     }
 }

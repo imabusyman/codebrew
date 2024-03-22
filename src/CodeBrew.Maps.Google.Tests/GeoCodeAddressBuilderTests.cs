@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using CodeBrew.Common.Models;
+using CodeBrew.Maps.Google.Common;
 using CodeBrew.Maps.Google.GeoCode;
 using CodeBrew.Maps.Google.Models;
 using Microsoft.Extensions.Logging;
@@ -10,12 +11,13 @@ namespace CodeBrew.Maps.Google.Tests
     [TestClass]
     public class GeoCodeAddressBuilderTests
     {
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestCreateGeoCodeAddressBuilderError()
         {
             var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
-            var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
+            var geoCodeAddressBuilder = new GeoCodeAddressBuilder();
             Assert.IsNotNull(geoCodeAddressBuilder);
             geoCodeAddressBuilder.CreateRequest();
         }
@@ -23,12 +25,14 @@ namespace CodeBrew.Maps.Google.Tests
         [TestMethod]
         public void TestCreateGeoCodeAddressBuilder()
         {
-            var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
-            var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
+            var geoCodeAddressBuilder = new GeoCodeAddressBuilder();
             Assert.IsNotNull(geoCodeAddressBuilder);
-            var googleAddress = CreateGoogleAddress(true);
+            var googleAddress = CreateGoogleAddress();
+            var googleOptions = new GoogleOptionsFaker().Generate();
             geoCodeAddressBuilder.WithAddress(googleAddress);
-            geoCodeAddressBuilder.WithApiKey("testKey");
+            geoCodeAddressBuilder.WithApiKey(googleOptions.ApiKey);
+            geoCodeAddressBuilder.WithBaseUrl(googleOptions.BaseUri);
+            geoCodeAddressBuilder.WithOutputFormat(googleOptions.OutputFormat);
             GeoCodeAddressRequest request = geoCodeAddressBuilder.CreateRequest();
             Assert.IsNotNull(request);
             Assert.IsNotNull(request.GoogleAddress);
@@ -40,8 +44,7 @@ namespace CodeBrew.Maps.Google.Tests
         [TestMethod]
         public void TestCreateGeoCodeCheckAddressBuilder()
         {
-            var logger = new Mock<ILogger<GeoCodeAddressBuilder>>();
-            var geoCodeAddressBuilder = new GeoCodeAddressBuilder(logger.Object);
+            var geoCodeAddressBuilder = new GeoCodeAddressBuilder();
             Assert.IsNotNull(geoCodeAddressBuilder);
             var googleAddress = CreateGoogleAddress(false);
             geoCodeAddressBuilder.WithAddress(googleAddress);
@@ -84,3 +87,15 @@ namespace CodeBrew.Maps.Google.Tests
             RuleFor(o => o.PlusFour, f => f.Address.ZipCode("####"));
         }
     }
+
+    public sealed class GoogleOptionsFaker : Faker<GoogleOptions>
+    {
+        public GoogleOptionsFaker()
+        {
+            RuleFor(o => o.ApiKey, f => f.Internet.Password(15));
+            RuleFor(o => o.BaseUri, f => new Uri(f.Internet.Url()));
+            RuleFor(o => o.OutputFormat, f => new JsonFormat());
+
+        }
+    }
+

@@ -17,6 +17,7 @@ namespace CodeBrew.Maps.Google.GeoCode
 
         public GeoCodeAddressRequest()
         {
+            
         }
 
         public GeoCodeAddressRequest(GoogleAddress googleAddress)

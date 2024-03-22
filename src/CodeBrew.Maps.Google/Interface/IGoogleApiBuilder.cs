@@ -11,6 +11,7 @@ namespace CodeBrew.Maps.Google.Interface
         #region Public Methods
 
         public TRequest? CreateRequest();
+
         void WithValidation(IValidator<TRequest> validator);
 
         #endregion Public Methods
@@ -25,6 +26,10 @@ namespace CodeBrew.Maps.Google.Interface
         string? CreateUrl();
 
         IGoogleApiBuilder WithApiKey(string apiKey);
+
+        IGoogleApiBuilder WithBaseUrl(string url);
+
+        IGoogleApiBuilder WithBaseUrl(Uri? uri);
 
         IGoogleApiBuilder WithOptions(GoogleOptions? googleOptions);
 
