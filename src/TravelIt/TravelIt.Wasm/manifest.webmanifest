@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "TravelIt",
+  "display": "standalone",
+  "name": "TravelIt",
+  "short_name": "TravelIt",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
