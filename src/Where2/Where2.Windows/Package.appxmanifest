@@ -32,7 +32,8 @@
       <uap:VisualElements
         DisplayName="Where2"
         Description="Where2">
-        <uap:SplashScreen />
+        <uap:SplashScreen  Image="Assets\SplashScreen.png"/>
+        <uap:DefaultTile/>
       </uap:VisualElements>
     </Application>
   </Applications>
